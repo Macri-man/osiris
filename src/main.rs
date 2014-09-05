@@ -1,9 +1,9 @@
-use std::io::net::udp::UdpSocket;
-use std::io::net::ip::{Ipv4Addr, SocketAddr};
+use std::io::net::udp;
+use std::io::net::ip;
 
 fn main() {
-    let addr = SocketAddr {ip: Ipv4Addr(127, 0, 0, 1), port: 34000};
-    let mut socket = match UdpSocket::bind(addr) {
+    let addr = ip::SocketAddr {ip: ip::Ipv4Addr(127, 0, 0, 1), port: 34000};
+    let mut socket = match udp::UdpSocket::bind(addr) {
 	Ok(s) => s,
 	Err(e) => fail!("couldn't bind socket: {}", e),
     };
